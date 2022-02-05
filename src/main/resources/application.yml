@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: stockdock
+  profiles:
+    active: dev

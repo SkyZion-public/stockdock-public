@@ -1,0 +1,33 @@
+server:
+  port: 8800
+
+spring:
+  output:
+    ansi:
+      enabled: detect
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:mydatabase;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        ddl-auto: none
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+      path: /h2
+
+logging:
+  level.ru.dsci.stockdock.* : debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread]: %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.sss} [%thread] %-5level %logger{36}: %msg%n"
+  file:
+    name: logs/dev/stockdock.log
+    path: logs/dev
